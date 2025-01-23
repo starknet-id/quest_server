@@ -26,4 +26,8 @@ pub mod tests {
         let response = client.get(endpoint).send().await.unwrap();
         assert_eq!(response.status(), StatusCode::OK);
     }
+
+    // #[tokio::test]
+    // pub async fn test_get_quest_participants() {
+    //     let endpoint = format!("http://
 }

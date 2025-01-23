@@ -229,8 +229,10 @@ pub fn load() -> Config {
     let args: Vec<String> = env::args().collect();
     let config_path = if args.len() <= 1 {
         "config.toml"
-    } else {
+    } else if (args.len() > 1) && (args.get(1).unwrap().contains("toml")) {
         args.get(1).unwrap()
+    } else {
+        "config.toml"
     };
     let file_contents = fs::read_to_string(config_path);
     if file_contents.is_err() {
